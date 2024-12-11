@@ -7,6 +7,7 @@ import ParticlesBackground from "./ParticlesBackground";
 const Hero = () => {
   const [mounted, setMounted] = useState(false);
   const [text, setText] = useState("");
+  const [isTypingComplete, setIsTypingComplete] = useState(false);
   const fullText = "Développeur Web & Entrepreneur.";
   const typingSpeed = 50;
 
@@ -22,6 +23,7 @@ const Hero = () => {
         currentIndex++;
       } else {
         clearInterval(typingInterval);
+        setIsTypingComplete(true);
       }
     }, typingSpeed);
 
@@ -74,7 +76,7 @@ const Hero = () => {
         
         <motion.h3
           variants={itemVariants}
-          className="heading text-slate"
+          className={`heading text-slate ${isTypingComplete ? 'animate-glow' : ''}`}
         >
           {text}
           <span className="animate-pulse">|</span>
@@ -93,13 +95,15 @@ const Hero = () => {
           variants={itemVariants}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          className="group"
         >
           <Button
-            className="mt-8 bg-transparent border-2 border-green text-green hover:bg-green/10 px-8 py-6 text-lg 
-                     transition-all duration-300 hover:shadow-[0_0_15px_rgba(100,255,218,0.3)]"
+            className="mt-8 bg-transparent border-2 border-green text-green 
+                     hover:bg-green/10 px-8 py-6 text-lg transition-all duration-300 
+                     group-hover:shadow-[0_0_15px_rgba(100,255,218,0.3)]"
           >
             Découvrir mes projets
-            <ArrowRight className="ml-2" />
+            <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
           </Button>
         </motion.div>
       </motion.div>

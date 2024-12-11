@@ -49,47 +49,48 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center section-padding overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center section-padding overflow-hidden bg-gradient-to-b from-navy to-navy-light">
       <ParticlesBackground />
       
-      {/* Éléments décoratifs */}
+      {/* Éléments décoratifs inspirés de vite.dev */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 right-10 w-64 h-64 bg-green/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-navy-lighter/30 rounded-full blur-3xl" />
+        <div className="absolute top-20 right-10 w-64 h-64 bg-green/5 rounded-full blur-[100px]" />
+        <div className="absolute bottom-20 left-10 w-96 h-96 bg-navy-lighter/30 rounded-full blur-[120px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-green/10 to-transparent rounded-full blur-[120px] opacity-30" />
       </div>
       
-      <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
+      <div className="container mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={mounted ? "visible" : "hidden"}
-          className="max-w-2xl"
+          className="text-center lg:text-left max-w-2xl mx-auto lg:mx-0"
         >
-          <motion.h1
+          <motion.span
             variants={itemVariants}
-            className="font-mono text-green mb-5"
+            className="inline-block font-mono text-green mb-5 px-4 py-1 rounded-full bg-green/10 text-sm"
           >
             Bonjour, je suis
-          </motion.h1>
+          </motion.span>
           
           <motion.h2
             variants={itemVariants}
-            className="heading"
+            className="heading bg-clip-text text-transparent bg-gradient-to-r from-lightest-slate to-light-slate"
           >
             Antoine Dewas.
           </motion.h2>
           
           <motion.h3
             variants={itemVariants}
-            className="heading text-slate"
+            className="heading text-slate relative inline-block"
           >
             {text}
-            <span className="animate-pulse">|</span>
+            <span className="animate-pulse ml-1">|</span>
           </motion.h3>
           
           <motion.p
             variants={itemVariants}
-            className="subheading max-w-2xl"
+            className="subheading max-w-2xl mx-auto lg:mx-0"
           >
             Je suis un développeur web spécialisé dans la création d'expériences
             numériques exceptionnelles. Actuellement, je me concentre sur la
@@ -98,15 +99,15 @@ const Hero = () => {
           
           <motion.div
             variants={itemVariants}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            className="flex flex-wrap gap-4 justify-center lg:justify-start"
           >
             <Button
-              className="mt-8 bg-transparent border-2 border-green text-green hover:bg-green/10 px-8 py-6 text-lg 
-                       transition-all duration-300 hover:shadow-[0_0_15px_rgba(100,255,218,0.3)]"
+              className="relative group bg-transparent border-2 border-green text-green hover:bg-green/10 px-8 py-6 text-lg 
+                       transition-all duration-300"
             >
-              Découvrir mes projets
-              <ArrowRight className="ml-2" />
+              <span className="relative z-10">Découvrir mes projets</span>
+              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+              <div className="absolute inset-0 bg-gradient-to-r from-green/0 via-green/5 to-green/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </Button>
           </motion.div>
         </motion.div>
@@ -115,17 +116,22 @@ const Hero = () => {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="hidden md:block relative"
+          className="hidden lg:block relative"
         >
           <div className="relative w-full aspect-square">
             <img
               src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
               alt="Développement web"
-              className="rounded-lg object-cover w-full h-full"
+              className="rounded-2xl object-cover w-full h-full"
             />
-            <div className="absolute inset-0 bg-green/20 rounded-lg"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-green/20 to-transparent rounded-2xl backdrop-blur-[2px]"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent rounded-2xl"></div>
           </div>
-          <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-green rounded-lg -z-10"></div>
+          <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-green/30 rounded-2xl -z-10"></div>
+          
+          {/* Points lumineux inspirés de vite.dev */}
+          <div className="absolute -top-4 -right-4 w-8 h-8 bg-green/20 rounded-full blur-xl animate-pulse"></div>
+          <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-green/20 rounded-full blur-lg animate-pulse delay-300"></div>
         </motion.div>
       </div>
     </section>

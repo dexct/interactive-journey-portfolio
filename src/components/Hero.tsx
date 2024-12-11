@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import ParticlesBackground from "./ParticlesBackground";
+import SplineScene from "./SplineScene";
 
 const Hero = () => {
   const [mounted, setMounted] = useState(false);
@@ -52,7 +53,6 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center section-padding overflow-hidden bg-gradient-to-b from-navy to-navy-light">
       <ParticlesBackground />
       
-      {/* Éléments décoratifs inspirés de vite.dev */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 right-10 w-64 h-64 bg-green/5 rounded-full blur-[100px]" />
         <div className="absolute bottom-20 left-10 w-96 h-96 bg-navy-lighter/30 rounded-full blur-[120px]" />
@@ -118,20 +118,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="hidden lg:block relative"
         >
-          <div className="relative w-full aspect-square">
-            <img
-              src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
-              alt="Développement web"
-              className="rounded-2xl object-cover w-full h-full"
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-green/20 to-transparent rounded-2xl backdrop-blur-[2px]"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent rounded-2xl"></div>
-          </div>
-          <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-green/30 rounded-2xl -z-10"></div>
-          
-          {/* Points lumineux inspirés de vite.dev */}
-          <div className="absolute -top-4 -right-4 w-8 h-8 bg-green/20 rounded-full blur-xl animate-pulse"></div>
-          <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-green/20 rounded-full blur-lg animate-pulse delay-300"></div>
+          <SplineScene />
         </motion.div>
       </div>
     </section>
